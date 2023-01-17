@@ -1,0 +1,22 @@
+[
+    {
+        "name": "card1",
+        "rarity": "rare"
+    },
+    {
+        "name": "card2",
+        "rarity": "rare"
+    },
+    {
+        "name": "card3",
+        "rarity": "rare"
+    },
+    {
+        "name": "card4",
+        "rarity": "rare"
+    },
+    {
+        "name": "card5",
+        "rarity": "rare"
+    }
+]
