@@ -7,21 +7,22 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
-
+  
   constructor(private http: HttpClient) { 
     
-   }
-
+  }
+  
   cards: any = [];
-
+  
   ngOnInit(): void {
     this.getAllCards();
   }
-
+  
   getAllCards() {
     return this.http.get('https://api.magicthegathering.io/v1/cards')
     .subscribe((response: any) => {
       this.cards = response.cards;
+      
       console.log(this.cards);
     })
   }

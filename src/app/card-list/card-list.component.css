@@ -1,0 +1,6 @@
+a {
+    transition: .3s;
+}
+a:hover {
+    box-shadow: 0 0 5px #000;
+}
