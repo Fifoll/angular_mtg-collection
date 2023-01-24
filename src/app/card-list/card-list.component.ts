@@ -15,7 +15,7 @@ export class CardListComponent implements OnInit {
   cards: any = [];
 
   p:number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 12;
   totalProduct:any;
   
   ngOnInit(): void {
@@ -25,8 +25,15 @@ export class CardListComponent implements OnInit {
   getAllCards() {
     return this.http.get('https://api.magicthegathering.io/v1/cards')
     .subscribe((response: any) => {
-      this.cards = response.cards; 
-      this.totalProduct = response.length;
+
+      for(let i=0; i<response.cards.length; i++) {
+
+        if(response.cards[i].hasOwnProperty("imageUrl")) {
+          this.cards.push(response.cards[i]);
+        };
+        
+      };
+      this.totalProduct = this.cards.length;
       console.log(this.cards);
     })
   }

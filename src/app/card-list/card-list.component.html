@@ -2,8 +2,7 @@
 
 <div class="container">
         <div class="row justify-content-sm-between justify-content-center">
-                <span *ngFor="let card of cards | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
-                                <div *ngIf="card.hasOwnProperty('imageUrl')">
+                <ng-container *ngFor="let card of cards | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
                                         <a class="d-block mb-3 p-3 border rounded" style="width: fit-content!important" href="#">
                                                 <img data-mdb-lazy-src src="{{ card.imageUrl }}">
                                                 <div class="d-flex flex-column align-items-center justify-content-center">
@@ -11,8 +10,7 @@
                                                         <button class="btn btn-sm btn-success">Add to favourite</button>
                                                 </div>
                                         </a>
-                                </div>
-                </span>
+                </ng-container>
         </div>
         <div class="mt-5 mb-3 d-flex justify-content-center">
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
