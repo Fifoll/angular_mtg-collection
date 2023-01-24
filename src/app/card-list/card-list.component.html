@@ -3,7 +3,7 @@
 <div class="container">
         <div class="row justify-content-sm-between justify-content-center">
                 <ng-container *ngFor="let card of cards | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
-                                        <a class="d-block mb-3 p-3 border rounded" style="width: fit-content!important" href="#">
+                                        <a class="d-block mb-3 p-3 border rounded" style="width: fit-content!important" [routerLink]="['/card/', card.multiverseid]">
                                                 <img data-mdb-lazy-src src="{{ card.imageUrl }}">
                                                 <div class="d-flex flex-column align-items-center justify-content-center">
                                                         <p class="mt-2 mb-2">{{ card.name }}</p>

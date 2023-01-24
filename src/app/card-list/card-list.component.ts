@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CardListService } from '../card-list.service';
 
 @Component({
   selector: 'app-card-list',
@@ -8,7 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class CardListComponent implements OnInit {
   
-  constructor(private http: HttpClient) { 
+  constructor(private cardListService: CardListService) { 
     
   }
   
@@ -19,22 +19,22 @@ export class CardListComponent implements OnInit {
   totalProduct:any;
   
   ngOnInit(): void {
-    this.getAllCards();
+    this.loadContacts();
   }
-  
-  getAllCards() {
-    return this.http.get('https://api.magicthegathering.io/v1/cards')
-    .subscribe((response: any) => {
 
-      for(let i=0; i<response.cards.length; i++) {
+  loadContacts(): void {
+    this.cardListService.getAllCards().subscribe((data: any) => {
 
-        if(response.cards[i].hasOwnProperty("imageUrl")) {
-          this.cards.push(response.cards[i]);
+      for(let i=0; i<data.cards.length; i++) {
+
+        if(data.cards[i].hasOwnProperty("imageUrl")) {
+          this.cards.push(data.cards[i]);
         };
         
       };
       this.totalProduct = this.cards.length;
       console.log(this.cards);
+
     })
   }
 

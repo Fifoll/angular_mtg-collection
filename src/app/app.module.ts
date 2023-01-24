@@ -9,6 +9,7 @@ import { CardListComponent } from './card-list/card-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MyCollectionComponent } from './my-collection/my-collection.component';
+import { CardDetailComponent } from './card-detail/card-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MyCollectionComponent } from './my-collection/my-collection.component';
     TopBarComponent,
     CardListComponent,
     FooterComponent,
-    MyCollectionComponent
+    MyCollectionComponent,
+    CardDetailComponent
   ],
   imports: [
     BrowserModule,
