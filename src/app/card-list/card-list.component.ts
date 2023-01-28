@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardListService } from '../card-list.service';
+import { SpinnerService } from '../spinner/spinner.service';
 
 @Component({
   selector: 'app-card-list',
@@ -8,7 +9,7 @@ import { CardListService } from '../card-list.service';
 })
 export class CardListComponent implements OnInit {
   
-  constructor(private cardListService: CardListService) { 
+  constructor(private cardListService: CardListService, private spinnerService: SpinnerService) { 
     
   }
   
@@ -23,6 +24,7 @@ export class CardListComponent implements OnInit {
   }
 
   loadContacts(): void {
+    this.spinnerService.requestStarted();
     this.cardListService.getAllCards().subscribe((data: any) => {
 
       for(let i=0; i<data.cards.length; i++) {
@@ -34,7 +36,7 @@ export class CardListComponent implements OnInit {
       };
       this.totalProduct = this.cards.length;
       console.log(this.cards);
-
+      this.spinnerService.requestEnded();
     })
   }
 

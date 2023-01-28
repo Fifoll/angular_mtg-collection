@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CardListService } from '../card-list.service';
+import { SpinnerService } from '../spinner/spinner.service';
 
 @Component({
   selector: 'app-card-detail',
@@ -9,7 +10,7 @@ import { CardListService } from '../card-list.service';
 })
 export class CardDetailComponent implements OnInit {
 
-  constructor(private cardListService: CardListService, private route: ActivatedRoute) { }
+  constructor(private cardListService: CardListService, private route: ActivatedRoute, private spinnerService: SpinnerService) { }
 
   ngOnInit(): void {
     this.loadContact();
@@ -19,14 +20,14 @@ export class CardDetailComponent implements OnInit {
 
 
   loadContact(): void {
-
     const id = this.route.snapshot.params['id'];
+    this.spinnerService.requestStarted();
 
     this.cardListService.getContact(id).subscribe(data => {
       this.cardDetails = data.card;
       console.log(data.card);
+      this.spinnerService.requestEnded();
     })
-
 
 
   }
