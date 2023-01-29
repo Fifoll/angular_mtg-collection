@@ -10,6 +10,8 @@ import { SpinnerService } from '../spinner/spinner.service';
 })
 export class CardDetailComponent implements OnInit {
 
+  activeTab: string = "Details";
+
   constructor(private cardListService: CardListService, private route: ActivatedRoute, private spinnerService: SpinnerService) { }
 
   ngOnInit(): void {
@@ -28,8 +30,10 @@ export class CardDetailComponent implements OnInit {
       console.log(data.card);
       this.spinnerService.requestEnded();
     })
+  }
 
-
+  onTabClick(tab: string): void {
+      this.activeTab = tab;
   }
 
 }

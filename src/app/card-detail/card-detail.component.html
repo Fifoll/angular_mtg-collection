@@ -1,4 +1,50 @@
-<h1>{{ cardDetails.name}}</h1>
+<button class="btn btn-small btn-info mt-3" routerLink="/cards">Wstecz</button>
 
+<div class="card-wrapper">
 
-<button class="btn btn-small btn-info" routerLink="/cards">Wstecz</button>
+    <div class="d-flex flex-column align-items-center mt-2">
+        <h2>{{ cardDetails.name}}</h2>
+        <img src="{{ cardDetails.imageUrl }}" alt="{{ cardDetails.name }}">
+    </div>
+
+    <div>
+        <ul class="options d-flex justify-content-center mt-4">
+                <li (click)="onTabClick('Details')" [class.active]="activeTab === 'Details'"> Details</li>
+                <li (click)="onTabClick('Legality')" [class.active]="activeTab === 'Legality'">Legality</li>
+                <li (click)="onTabClick('Language')" [class.active]="activeTab === 'Language'">Language</li>
+        </ul>
+        <div class="contentTab" *ngIf="activeTab === 'Details'">
+            <ul class="contentTab__ul">
+                <li>Card name: <span>{{ cardDetails.name }}</span></li>
+                <li>Ratity: <span>{{ cardDetails.rarity }}</span></li>
+                <li>Type: <span>{{cardDetails.type }}</span></li>
+                <li>Colors: <span *ngFor="let color of cardDetails.colors">{{ color }}</span></li>
+                <li>Artist: <span>{{cardDetails.artist }}</span></li>
+            </ul>
+        </div>
+        <div class="contentTab" *ngIf="activeTab === 'Legality'">
+            <p class="contentTab__p mb-1">Legal in following formats:</p>
+            <ul class="contentTab__ul">
+                <li *ngFor="let format of cardDetails.legalities">{{ format.format }} <i class="bi bi-check2"></i></li>
+            </ul>
+        </div>
+        <div class="contentTab" *ngIf="activeTab === 'Language'">
+            <table>
+                <thead class="contendTab__thead">
+                    <tr>
+                        <td>Language</td>
+                        <td>Translated name</td>
+                    </tr>
+                </thead>
+                <tbody class="contendTab__tbody">
+                    <tr *ngFor="let language of cardDetails.foreignNames">
+                            <td>{{ language.language }}</td>
+                            <td>{{ language.name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+

@@ -1,8 +1,7 @@
 .footer {
     background-color: #111111;
     padding: 1rem;
-    position: fixed;
-    bottom: 0;
+    margin-top: 2rem;
     border-top-right-radius: 20px;
 }
 a {

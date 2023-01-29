@@ -1,0 +1,53 @@
+.container {
+    padding-top: 1rem;
+}
+.options, .contentTab__ul {
+    list-style-type: none;
+    padding: 0;
+}
+.options > li {
+    padding: 0 1rem;
+    font-size: 1.6rem;
+    transition: .1s;
+    cursor: pointer;
+}
+.options > li.active {
+    font-weight: 500;
+}
+.options > li:not(:last-of-type) {
+    border-right: 1px solid #000;
+}
+.contentTab {
+    border: 1px solid #000;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    max-width: 380px;
+}
+.contentTab__p, .contendTab__thead td {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.contentTab__ul > li, .contendTab__tbody td{
+    font-size: 1.2rem;
+    vertical-align: top;
+}
+.contentTab__ul > li > span {
+    font-weight: 500;
+}
+.bi-check2 {
+    font-size: 1.3rem;
+    color: green;
+}
+.contendTab__tbody td {
+    border-bottom: 1px solid #ebebeb;
+    padding: 10px 0;    
+}
+
+@media (min-width: 768px) {
+    .card-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }
+}
