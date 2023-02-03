@@ -4,3 +4,7 @@ a {
 a:hover {
     box-shadow: 0 0 5px #000;
 }
+.btn__favourite {
+    display: block;
+    margin: 0 auto;
+}

@@ -22,6 +22,7 @@ export class CardListService {
     return this.httpClient.get(`${this.baseApiUrl}/cards/${id}`);
 
   }
+  
 
 
 
