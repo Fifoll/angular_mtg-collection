@@ -43,4 +43,8 @@ export class CardDetailComponent implements OnInit {
       this.activeTab = tab;
   }
 
+  addToFavouriteFromProductPage(card: any, cardName: string):void {
+    this.cardListService.addToFavourite(card, cardName);
+  }
+
 }

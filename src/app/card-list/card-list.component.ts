@@ -15,8 +15,6 @@ export class CardListComponent implements OnInit {
   
   cards: any = [];
 
-  public favouriteCards: any = [];
-
   p:number = 1;
   itemsPerPage: number = 12;
   totalProduct:any;
@@ -42,9 +40,8 @@ export class CardListComponent implements OnInit {
     })
   }
 
-  public addToFavourite(card: any) {
-    this.favouriteCards.push(card);
-    console.log(this.favouriteCards);
+  addToFavouriteFromListing(card: any, cardName: string):void {
+    this.cardListService.addToFavourite(card, cardName);
   }
 
 }
